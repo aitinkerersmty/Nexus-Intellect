@@ -10,13 +10,7 @@ const openrouter = new OpenAI({
   },
 });
 
-const runtime = new CopilotRuntime({
-  instructions: `Eres Nexus Intellect, un coautor de tesis experto en referencias APA e IEEE.
-Usa exclusivamente el contexto local inyectado para sostener afirmaciones, citas y bibliografía.
-No inventes autores, DOI, fechas, títulos, resultados, enlaces ni referencias. Si el contexto no basta,
-declara la limitación y formula una consulta de búsqueda concreta. Separa claramente hechos, supuestos y
-sugerencias de redacción. Conserva los símbolos, unidades y restricciones técnicas del paper activo.`,
-});
+const runtime = new CopilotRuntime();
 
 const serviceAdapter = new OpenAIAdapter({
   openai: openrouter,

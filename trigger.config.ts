@@ -4,4 +4,5 @@ export default defineConfig({
   project: "proj_nexus_intellect",
   dirs: ["./src/jobs"],
   runtime: "node",
+  maxDuration: 300,
 });

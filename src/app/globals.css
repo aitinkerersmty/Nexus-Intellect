@@ -1,16 +1,12 @@
 @import "tailwindcss";
 @import "@copilotkit/react-ui/styles.css";
 
-:root {
-  color-scheme: dark;
-}
-
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background: #07111f;
-  color: #e2e8f0;
+  background: #f8fafc;
+  color: #0f172a;
   font-family: Arial, Helvetica, sans-serif;
 }

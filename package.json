@@ -16,11 +16,13 @@
     "@copilotkit/runtime": "latest",
     "@trigger.dev/sdk": "latest",
     "exa-js": "latest",
+    "framer-motion": "latest",
     "lucide-react": "latest",
     "next": "latest",
     "openai": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-force-graph-2d": "latest"
   },
   "devDependencies": {
     "@eslint/eslintrc": "latest",

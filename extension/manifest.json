@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Nexus Capture",
+  "description": "Captura una fuente, DOI o PDF para Nexus Intellect.",
+  "version": "0.1.0",
+  "action": { "default_title": "Nexus Capture", "default_popup": "popup.html" },
+  "permissions": ["activeTab", "storage", "tabs"],
+  "host_permissions": ["https://nexus-intellect.vercel.app/*"],
+  "content_security_policy": { "extension_pages": "script-src 'self'; object-src 'self'" }
+}

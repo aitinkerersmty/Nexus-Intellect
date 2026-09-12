@@ -64,3 +64,8 @@ html.theme-dark input,
 html.theme-dark textarea,
 html.theme-dark select { color: #e2e8f0 !important; }
 html.theme-dark .theme-toggle { background: #172337 !important; border-color: #475569 !important; color: #f8fafc !important; }
+
+/* Los controles de cuenta y preferencias deben permanecer por encima del sidebar de CopilotKit. */
+body .fixed.right-5.top-5 { z-index: 2147483647 !important; }
+body .fixed.right-72.top-5 { z-index: 2147483646 !important; }
+body .fixed.inset-0 { z-index: 2147483647 !important; }

@@ -14,7 +14,7 @@ html[data-theme="nebula"] { --color-primary: #7c3aed; --color-primary-hover: #6d
 html[data-theme="oceanico"] { --color-primary: #0ea5e9; --color-primary-hover: #0284c7; --color-secondary: #0c4a6e; --color-accent: #e0f2fe; --graph-citation: #22d3ee; --graph-topic: #93c5fd; }
 
 html[data-theme] .bg-orange-500 { background-color: var(--color-primary) !important; }
-html[data-theme] .hover\\:bg-orange-600:hover { background-color: var(--color-primary-hover) !important; }
+html[data-theme] .hover\:bg-orange-600:hover { background-color: var(--color-primary-hover) !important; }
 html[data-theme] .bg-blue-950 { background-color: var(--color-secondary) !important; }
 html[data-theme] .text-orange-500, html[data-theme] .text-orange-600 { color: var(--color-primary) !important; }
 html[data-theme] .bg-orange-50 { background-color: color-mix(in srgb, var(--color-primary) 9%, white) !important; }

@@ -4,6 +4,7 @@ export type ResearchDocument = {
   id: string;
   title: string;
   doi?: string;
+  url?: string;
   year: number;
   authors: string[];
   summary: string;
@@ -84,7 +85,7 @@ export const demoProject: ResearchProject = {
 
 export const graphContext = (project: ResearchProject) => ({
   project: { name: project.name, purpose: project.purpose, scope: project.scope },
-  documents: project.documents.map(({ id, title, summary, affinity, entities, authors, year }) => ({ id, title, summary, affinity, entities, authors, year })),
+  documents: project.documents.map(({ id, title, summary, affinity, entities, authors, year, doi, url }) => ({ id, title, summary, affinity, entities, authors, year, doi, url })),
   edges: project.edges.map((edge) => ({
     from: project.documents.find((document) => document.id === edge.source)?.title,
     to: project.documents.find((document) => document.id === edge.target)?.title,

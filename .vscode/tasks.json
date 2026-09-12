@@ -1,0 +1,79 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Nexus Intellect production server",
+			"type": "shell",
+			"command": "npm.cmd",
+			"args": [
+				"run",
+				"start"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Nexus Intellect public tunnel",
+			"type": "shell",
+			"command": "npx.cmd",
+			"args": [
+				"--yes",
+				"localtunnel",
+				"--port",
+				"3000"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Nexus Intellect public tunnel retry",
+			"type": "shell",
+			"command": "npx.cmd",
+			"args": [
+				"--yes",
+				"localtunnel",
+				"--port",
+				"3000",
+				"--local-host",
+				"127.0.0.1"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Nexus Intellect Cloudflare tunnel",
+			"type": "shell",
+			"command": "npx.cmd",
+			"args": [
+				"--yes",
+				"cloudflared",
+				"tunnel",
+				"--url",
+				"http://127.0.0.1:3000"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Nexus Intellect Cloudflare HTTP2 tunnel",
+			"type": "shell",
+			"command": "npx.cmd",
+			"args": [
+				"--yes",
+				"cloudflared",
+				"tunnel",
+				"--protocol",
+				"http2",
+				"--url",
+				"http://127.0.0.1:3000"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

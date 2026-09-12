@@ -5,11 +5,6 @@ import type { KnowledgeEdge, ResearchDocument, ResearchProject } from "@/lib/moc
 
 const normalizeDoi = (value: string) => value.trim().replace(/^https?:\/\/(dx\.)?doi\.org\//i, "");
 
-const openrouter = new OpenAI({
-  apiKey: process.env.OPENROUTER_API_KEY,
-  baseURL: "https://openrouter.ai/api/v1",
-});
-
 type Extraction = Pick<ResearchDocument, "title" | "authors" | "summary" | "affinity" | "affinityReason" | "entities"> & {
   citations: Array<{ documentId: string; explanation: string }>;
 };
@@ -33,6 +28,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ document, edges, simulated: true });
     }
 
+    const openrouter = new OpenAI({
+      apiKey: process.env.OPENROUTER_API_KEY,
+      baseURL: "https://openrouter.ai/api/v1",
+    });
     const exa = new Exa(process.env.EXA_API_KEY);
     const search = await exa.searchAndContents(`doi:${doi}`, { type: "auto", numResults: 1, text: { maxCharacters: 6_000 } });
     const result = search.results[0];

@@ -24,7 +24,7 @@ export async function POST(request: Request) {
         summary: "Ingesta de demostración. Añade EXA_API_KEY y OPENROUTER_API_KEY para extraer metadatos, contenido y citas verificables.",
         affinity: 75, affinityReason: `Coincidencia preliminar con el propósito: ${project.purpose}`, entities: ["DOI", "pendiente de extracción"], color: "teal",
       };
-      const edges: KnowledgeEdge[] = [{ id: `${id}-topic`, source: id, target: project.documents[0].id, kind: "topic", label: "afinidad preliminar por propósito" }];
+      const edges: KnowledgeEdge[] = [];
       return NextResponse.json({ document, edges, simulated: true });
     }
 
@@ -58,7 +58,7 @@ export async function POST(request: Request) {
     const citations = (extraction.citations || []).filter((citation) => project.documents.some((document) => document.id === citation.documentId));
     const edges: KnowledgeEdge[] = citations.length
       ? citations.map((citation) => ({ id: `${id}-cites-${citation.documentId}`, source: id, target: citation.documentId, kind: "citation", label: citation.explanation || "citación extraída" }))
-      : [{ id: `${id}-topic`, source: id, target: project.documents[0].id, kind: "topic", label: "afinidad temática con el propósito" }];
+      : [];
 
     return NextResponse.json({ document, edges, simulated: false });
   } catch (error) {

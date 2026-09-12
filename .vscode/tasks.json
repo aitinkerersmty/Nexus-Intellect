@@ -74,6 +74,107 @@
 			"isBackground": true,
 			"problemMatcher": [],
 			"group": "build"
+		},
+		{
+			"label": "Nexus Intellect auth verification server",
+			"type": "shell",
+			"command": "npm.cmd",
+			"args": [
+				"run",
+				"start"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Nexus Intellect auth verification server restarted",
+			"type": "shell",
+			"command": "npm.cmd",
+			"args": [
+				"run",
+				"start"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Nexus Intellect Google OAuth server",
+			"type": "shell",
+			"command": "npm.cmd",
+			"args": [
+				"run",
+				"start"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Nexus Intellect Google OAuth final server",
+			"type": "shell",
+			"command": "npm.cmd",
+			"args": [
+				"run",
+				"start"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Nexus Intellect Google OAuth verified server",
+			"type": "shell",
+			"command": "npm.cmd",
+			"args": [
+				"run",
+				"start"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Nexus Intellect Google final verification",
+			"type": "shell",
+			"command": "npm.cmd",
+			"args": [
+				"run",
+				"start"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Nexus Intellect reverse tunnel",
+			"type": "shell",
+			"command": "npx.cmd",
+			"args": [
+				"--yes",
+				"cloudflared",
+				"tunnel",
+				"--protocol",
+				"http2",
+				"--url",
+				"http://127.0.0.1:3000"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Nexus Intellect public app server",
+			"type": "shell",
+			"command": "npm.cmd",
+			"args": [
+				"run",
+				"start"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
 		}
 	]
 }

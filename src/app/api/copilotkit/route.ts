@@ -2,6 +2,7 @@ import { CopilotRuntime, OpenAIAdapter, copilotRuntimeNextJSAppRouterEndpoint } 
 import OpenAI from "openai";
 
 const runtime = new CopilotRuntime();
+const allowedModels = new Set(["anthropic/claude-3.5-sonnet", "openai/gpt-4o-mini", "google/gemini-2.0-flash-001", "meta-llama/llama-3.1-70b-instruct"]);
 
 export const POST = async (request: Request) => {
   if (!process.env.OPENROUTER_API_KEY) {
@@ -16,9 +17,10 @@ export const POST = async (request: Request) => {
       "X-Title": "Nexus Intellect",
     },
   });
+  const requestedModel = new URL(request.url).searchParams.get("model") ?? process.env.OPENROUTER_MODEL ?? "openai/gpt-4o-mini";
   const serviceAdapter = new OpenAIAdapter({
     openai: openrouter,
-    model: process.env.OPENROUTER_MODEL ?? "openai/gpt-4o-mini",
+    model: allowedModels.has(requestedModel) ? requestedModel : "openai/gpt-4o-mini",
   });
   const { handleRequest } = copilotRuntimeNextJSAppRouterEndpoint({
     runtime,

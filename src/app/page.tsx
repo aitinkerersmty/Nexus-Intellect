@@ -1,9 +1,9 @@
 "use client";
 
-import { ChangeEvent, FormEvent, type HTMLAttributes, type ReactNode, useMemo, useRef, useState } from "react";
+import { ChangeEvent, FormEvent, type HTMLAttributes, type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { CopilotKit, useCopilotReadable } from "@copilotkit/react-core";
 import { CopilotSidebar } from "@copilotkit/react-ui";
-import { FileText, FolderKanban, Network, Plus, Search, Sparkles, Upload } from "lucide-react";
+import { FileText, FolderKanban, Moon, Network, Plus, Search, Sparkles, Sun, Upload } from "lucide-react";
 import { KnowledgeGraph } from "@/components/KnowledgeGraph";
 import { demoProject, graphContext, type ResearchDocument, type ResearchProject } from "@/lib/mockData";
 
@@ -13,6 +13,10 @@ const MotionArticle = ({ initial, animate, exit, children, ...props }: HTMLAttri
   return <article {...props}>{children}</article>;
 };
 const motion = { article: MotionArticle };
+
+function ThemeToggle({ isDark, onToggle }: { isDark: boolean; onToggle: () => void }) {
+  return <button onClick={onToggle} aria-label={isDark ? "Activar modo claro" : "Activar modo oscuro"} title={isDark ? "Modo claro" : "Modo oscuro"} className="fixed right-5 top-5 z-[100] grid h-10 w-10 place-items-center rounded-xl border border-slate-200 bg-white text-blue-950 shadow-lg transition hover:-translate-y-0.5 hover:border-orange-300 hover:text-orange-600 theme-toggle">{isDark ? <Sun size={18} /> : <Moon size={18} />}</button>;
+}
 
 function AffinityBadge({ value }: { value: number }) {
   return <span className="rounded-full bg-orange-100 px-2 py-1 text-xs font-bold text-orange-700">{value}% afinidad</span>;
@@ -49,6 +53,17 @@ function ProjectWorkspace({ onShowProjects }: { onShowProjects: () => void }) {
 
 export default function Home() {
   const [showProjects, setShowProjects] = useState(false);
-  if (showProjects) return <Dashboard onOpen={() => setShowProjects(false)} />;
-  return <CopilotKit runtimeUrl="/api/copilotkit"><CopilotSidebar defaultOpen clickOutsideToClose={false} labels={{ title: "Agente de investigación", initial: "Pregunta qué conecta dos documentos o qué hueco cubriría un nuevo paper." }} instructions="Razona usando los documentos y las aristas del grafo disponibles. Distingue siempre entre citación real y afinidad temática."><ProjectWorkspace onShowProjects={() => setShowProjects(true)} /></CopilotSidebar></CopilotKit>;
+  const [isDark, setIsDark] = useState(false);
+  useEffect(() => {
+    const savedTheme = window.localStorage.getItem("nexus-theme");
+    const dark = savedTheme ? savedTheme === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setIsDark(dark);
+  }, []);
+  useEffect(() => {
+    document.documentElement.classList.toggle("theme-dark", isDark);
+    window.localStorage.setItem("nexus-theme", isDark ? "dark" : "light");
+  }, [isDark]);
+  const toggle = <ThemeToggle isDark={isDark} onToggle={() => setIsDark((current) => !current)} />;
+  if (showProjects) return <>{toggle}<Dashboard onOpen={() => setShowProjects(false)} /></>;
+  return <>{toggle}<CopilotKit runtimeUrl="/api/copilotkit"><CopilotSidebar defaultOpen clickOutsideToClose={false} labels={{ title: "Agente de investigación", initial: "Pregunta qué conecta dos documentos o qué hueco cubriría un nuevo paper." }} instructions="Razona usando los documentos y las aristas del grafo disponibles. Distingue siempre entre citación real y afinidad temática."><ProjectWorkspace onShowProjects={() => setShowProjects(true)} /></CopilotSidebar></CopilotKit></>;
 }

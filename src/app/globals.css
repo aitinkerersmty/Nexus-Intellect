@@ -10,3 +10,39 @@ body {
   color: #0f172a;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+html.theme-dark,
+html.theme-dark body {
+  background: #091321;
+  color: #e2e8f0;
+  --copilot-kit-primary-color: #f97316;
+  --copilot-kit-contrast-color: #ffffff;
+  --copilot-kit-background-color: #101b2d;
+  --copilot-kit-secondary-color: #172337;
+  --copilot-kit-secondary-contrast-color: #e2e8f0;
+  --copilot-kit-separator-color: #334155;
+  --copilot-kit-muted-color: #94a3b8;
+}
+
+html.theme-dark .bg-slate-50 { background-color: #091321 !important; }
+html.theme-dark .bg-white { background-color: #101b2d !important; }
+html.theme-dark .bg-blue-50 { background-color: #14213a !important; }
+html.theme-dark .bg-orange-50 { background-color: #2a1b0e !important; }
+html.theme-dark .bg-orange-100 { background-color: #44250d !important; }
+html.theme-dark .border-slate-100,
+html.theme-dark .border-slate-200,
+html.theme-dark .border-blue-100 { border-color: #334155 !important; }
+html.theme-dark .border-blue-200 { border-color: #385174 !important; }
+html.theme-dark .text-slate-900,
+html.theme-dark .text-blue-950 { color: #f1f5f9 !important; }
+html.theme-dark .text-slate-600,
+html.theme-dark .text-slate-500,
+html.theme-dark .text-slate-400 { color: #aebdd0 !important; }
+html.theme-dark .text-blue-900,
+html.theme-dark .text-blue-800 { color: #93c5fd !important; }
+html.theme-dark .text-orange-700,
+html.theme-dark .text-orange-800 { color: #fdba74 !important; }
+html.theme-dark input,
+html.theme-dark textarea,
+html.theme-dark select { color: #e2e8f0 !important; }
+html.theme-dark .theme-toggle { background: #172337 !important; border-color: #475569 !important; color: #f8fafc !important; }

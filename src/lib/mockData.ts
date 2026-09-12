@@ -76,9 +76,9 @@ export const demoProject: ResearchProject = {
     },
   ],
   edges: [
-    { id: "grain-cites-thermo", source: "grain-geometry", target: "thermodynamics", kind: "citation", label: "cita el modelo de delta-v" },
-    { id: "thermo-topic-losses", source: "thermodynamics", target: "mission-losses", kind: "topic", label: "afinidad: pérdidas de misión" },
-    { id: "grain-topic-losses", source: "grain-geometry", target: "mission-losses", kind: "topic", label: "afinidad: perfil de ascenso" },
+    { id: "grain-cites-thermo", source: "grain-geometry", target: "thermodynamics", kind: "citation", label: "El estudio de geometría reutiliza el modelo de impulso específico y delta-v definido en el documento termodinámico para convertir su perfil de empuje en desempeño de misión." },
+    { id: "thermo-topic-losses", source: "thermodynamics", target: "mission-losses", kind: "topic", label: "Ambos separan la velocidad ideal de Tsiolkovsky de las pérdidas reales: uno modela el motor y el otro cuantifica gravedad y arrastre durante el ascenso." },
+    { id: "grain-topic-losses", source: "grain-geometry", target: "mission-losses", kind: "topic", label: "La geometría de grano cambia la curva de empuje; ese perfil condiciona el tiempo de ascenso y, por tanto, las pérdidas gravitacionales estimadas." },
   ],
 };
 

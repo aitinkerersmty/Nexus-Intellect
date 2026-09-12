@@ -1,0 +1,36 @@
+{
+  "name": "nexus-intellect",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "trigger:dev": "trigger.dev dev"
+  },
+  "dependencies": {
+    "@copilotkit/react-core": "latest",
+    "@copilotkit/react-textarea": "latest",
+    "@copilotkit/react-ui": "latest",
+    "@copilotkit/runtime": "latest",
+    "@trigger.dev/sdk": "latest",
+    "exa-js": "latest",
+    "lucide-react": "latest",
+    "next": "latest",
+    "openai": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@tailwindcss/postcss": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "tailwindcss": "latest",
+    "typescript": "latest"
+  }
+}
